@@ -1,5 +1,6 @@
 resource "aws_security_group" "this" {
-  name   = "${local.full_name}"
+  name = "${local.upper_name}"
+
   vpc_id = "${var.vpc_id}"
 
   egress {
@@ -33,6 +34,6 @@ resource "aws_security_group" "this" {
   }
 
   tags = {
-    Name = "${local.full_name}"
+    Name = "${local.upper_name}"
   }
 }

@@ -1,15 +1,11 @@
 # locals
 
 locals {
-  name = "${var.stage}-${var.name}"
+  name = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
 
-  full_name = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
+  upper_name = "${upper(local.name)}"
 
-  upper_name = "${upper(local.full_name)}"
+  lower_name = "${lower(local.name)}"
 
-  lower_name = "${lower(local.full_name)}"
-
-  az_names = "${data.aws_availability_zones.azs.names}"
-
-  az_length = "${length(data.aws_availability_zones.azs.names[0])}"
+  key_name = "${var.key_name == "" ? local.upper_name : var.key_name}"
 }

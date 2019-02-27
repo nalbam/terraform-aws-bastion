@@ -33,15 +33,14 @@ variable "vpc_id" {
   default     = ""
 }
 
-variable "subnet_ids" {
-  description = "List of Subnet Ids"
-  type        = "list"
-  default     = []
+variable "subnet_id" {
+  description = "The Subnet ID."
+  default     = ""
 }
 
-variable "subnet_index" {
-  description = "Index of Subnet Ids"
-  default     = 0
+variable "az_zone" {
+  description = "The AZ Zone."
+  default     = "A"
 }
 
 variable "key_name" {
