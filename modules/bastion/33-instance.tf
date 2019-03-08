@@ -19,6 +19,7 @@ resource "aws_instance" "this" {
 
   tags = {
     Name = "${local.upper_name}"
+    Type = "bastion"
   }
 }
 
