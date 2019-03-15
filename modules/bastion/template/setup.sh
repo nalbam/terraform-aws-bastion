@@ -15,6 +15,9 @@ cat <<EOF > /etc/motd
 # 비인가자의 경우 접속을 해지하여 주시기 바랍니다       #
 #                                                       #
 #########################################################
+
+>> ${HOSTNAME} <<
+
 EOF
 
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
