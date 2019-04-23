@@ -21,9 +21,9 @@ module "bastion" {
   name   = "DEMO"
   suffix = "BASTION"
 
-  vpc_id = "vpc-061dc55df85dea9f1"
+  vpc_id = "vpc-00c644066e3a8d97d"
 
-  subnet_id = "subnet-0129594eaab11fe40"
+  subnet_id = "subnet-0c29ad66d2500c8a1"
 
   # ami_id = ""
   type = "t2.nano"
