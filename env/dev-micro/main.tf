@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     region = "ap-northeast-2"
     bucket = "terraform-nalbam-seoul"
-    key    = "bastion.tfstate"
+    key    = "bastion-micro.tfstate"
   }
 }
 
@@ -18,7 +18,7 @@ module "bastion" {
   region = "ap-northeast-2"
   city   = "SEOUL"
   stage  = "DEV"
-  name   = "DEMO"
+  name   = "MICRO"
   suffix = "BASTION"
 
   vpc_id = "vpc-00c644066e3a8d97d"
@@ -26,7 +26,7 @@ module "bastion" {
   subnet_id = "subnet-0c29ad66d2500c8a1"
 
   # ami_id = ""
-  type = "t2.nano"
+  type = "t2.micro"
 
   key_name = "nalbam-seoul"
 
