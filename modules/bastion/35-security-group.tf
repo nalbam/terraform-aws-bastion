@@ -1,7 +1,7 @@
 resource "aws_security_group" "this" {
-  name = "${local.upper_name}"
+  name = local.upper_name
 
-  vpc_id = "${var.vpc_id}"
+  vpc_id = var.vpc_id
 
   egress {
     from_port = "0"
@@ -30,10 +30,11 @@ resource "aws_security_group" "this" {
     from_port   = "22"
     to_port     = "22"
     protocol    = "tcp"
-    cidr_blocks = ["${var.allow_ip_address}"]
+    cidr_blocks = var.allow_ip_address
   }
 
   tags = {
-    Name = "${local.upper_name}"
+    Name = local.upper_name
   }
 }
+
