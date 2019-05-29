@@ -24,3 +24,4 @@ data "aws_ami" "this" {
     values = ["amzn-ami-hvm-*"]
   }
 }
+

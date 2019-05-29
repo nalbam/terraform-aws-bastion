@@ -60,6 +60,7 @@ variable "base_domain" {
 
 variable "allow_ip_address" {
   description = "List of IP Address to permit access"
-  type        = "list"
+  type        = list(string)
   default     = ["*"]
 }
+
