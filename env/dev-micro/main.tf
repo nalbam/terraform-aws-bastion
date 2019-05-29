@@ -6,6 +6,7 @@ terraform {
     bucket = "terraform-nalbam-seoul"
     key    = "bastion-micro.tfstate"
   }
+  required_version = ">= 0.12"
 }
 
 provider "aws" {
@@ -46,4 +47,3 @@ output "key_name" {
 output "public_ip" {
   value = module.bastion.public_ip
 }
-
