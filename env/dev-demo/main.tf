@@ -17,10 +17,10 @@ module "bastion" {
   source = "../../modules/bastion"
 
   region = "ap-northeast-2"
-  city   = "SEOUL"
-  stage  = "DEV"
-  name   = "DEMO"
-  suffix = "BASTION"
+  city   = "seoul"
+  stage  = "dev"
+  name   = "demo"
+  suffix = "bastion"
 
   vpc_id = "vpc-00c644066e3a8d97d"
 
@@ -32,7 +32,7 @@ module "bastion" {
   key_name = "nalbam-seoul"
 
   allow_ip_address = [
-    "58.151.93.9/32", # 강남 echo "$(curl -sL icanhazip.com)/32"
+    "221.148.35.250/32", # 강남 echo "$(curl -sL icanhazip.com)/32"
   ]
 }
 

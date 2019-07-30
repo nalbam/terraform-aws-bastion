@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  name = local.upper_name
+  name = local.full_name
 
   vpc_id = var.vpc_id
 
@@ -34,7 +34,6 @@ resource "aws_security_group" "this" {
   }
 
   tags = {
-    Name = local.upper_name
+    Name = local.full_name
   }
 }
-

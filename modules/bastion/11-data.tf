@@ -7,7 +7,6 @@ data "template_file" "setup" {
   template = file("${path.module}/template/setup.sh")
 
   vars = {
-    HOSTNAME = local.lower_name
+    HOSTNAME = local.full_name
   }
 }
-

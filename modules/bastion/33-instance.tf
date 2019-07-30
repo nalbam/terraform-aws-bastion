@@ -18,7 +18,7 @@ resource "aws_instance" "this" {
   key_name = local.key_name
 
   tags = {
-    Name = local.upper_name
+    Name = local.full_name
     Type = "bastion"
   }
 }
@@ -29,7 +29,6 @@ resource "aws_eip" "this" {
   vpc = true
 
   tags = {
-    Name = local.upper_name
+    Name = local.full_name
   }
 }
-

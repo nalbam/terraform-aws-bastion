@@ -3,19 +3,19 @@ variable "region" {
 }
 
 variable "city" {
-  description = "City Name of the cluster, e.g: SEOUL"
+  description = "City Name of the cluster, e.g: virginia"
 }
 
 variable "stage" {
-  description = "Stage Name of the cluster, e.g: DEV"
+  description = "Stage Name of the cluster, e.g: dev"
 }
 
 variable "name" {
-  description = "Name of the cluster, e.g: DEMO"
+  description = "Name of the cluster, e.g: demo"
 }
 
 variable "suffix" {
-  description = "Name of the cluster, e.g: BASTION"
+  description = "Name of the cluster, e.g: bastion"
 }
 
 variable "ami_id" {
@@ -63,4 +63,3 @@ variable "allow_ip_address" {
   type        = list(string)
   default     = ["*"]
 }
-

@@ -1,7 +1,7 @@
 // Output some useful variables for quick SSH access etc.
 
 output "name" {
-  value = local.upper_name
+  value = local.full_name
 }
 
 output "key_name" {
@@ -15,4 +15,3 @@ output "domain" {
 output "public_ip" {
   value = aws_eip.this.public_ip
 }
-

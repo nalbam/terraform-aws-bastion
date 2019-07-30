@@ -1,7 +1,7 @@
 // Create a role which instances will assume.
 // This role has a policy saying it can be assumed by ec2 instances.
 resource "aws_iam_role" "this" {
-  name = local.upper_name
+  name = local.full_name
 
   assume_role_policy = <<EOF
 {
@@ -29,7 +29,6 @@ resource "aws_iam_role_policy_attachment" "this" {
 
 // Create a instance profile for the role.
 resource "aws_iam_instance_profile" "this" {
-  name = local.upper_name
+  name = local.full_name
   role = aws_iam_role.this.name
 }
-
