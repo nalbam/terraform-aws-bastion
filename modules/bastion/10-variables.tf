@@ -54,7 +54,7 @@ variable "public_key_path" {
 }
 
 variable "base_domain" {
-  description = "Base domain, e.g: opsnow.com"
+  description = "Base domain, e.g: nalbam.com"
   default     = ""
 }
 

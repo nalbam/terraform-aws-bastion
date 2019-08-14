@@ -27,12 +27,12 @@ module "bastion" {
   subnet_id = "subnet-007a2bd91c7939e85"
 
   # ami_id = ""
-  type = "t2.nano"
+  # type   = "t2.nano"
 
   key_name = "nalbam-seoul"
 
   allow_ip_address = [
-    "221.148.35.250/32", # 강남 echo "$(curl -sL icanhazip.com)/32"
+    "106.244.127.5/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
 }
 
