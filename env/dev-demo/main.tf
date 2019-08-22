@@ -34,8 +34,8 @@ module "bastion" {
 
   subnet_ids = var.subnet_ids
 
-  launch_configuration_enable = false
-  launch_template_enable      = true
+  launch_configuration_enable = true
+  launch_template_enable      = false
   launch_each_subnet          = false
 
   associate_public_ip_address = true
