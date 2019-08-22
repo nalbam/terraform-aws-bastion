@@ -10,29 +10,29 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-2"
+  region = var.region
 }
 
 data "template_file" "setup" {
   template = file("../../template/setup.sh")
+
+  vars = {
+    HOSTNAME = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
+  }
 }
 
 module "bastion" {
   source = "github.com/nalbam/terraform-aws-asg/modules/asg"
 
-  region = "ap-northeast-2"
-  city   = "seoul"
-  stage  = "dev"
-  name   = "demo"
-  suffix = "bastion"
+  region = var.region
+  city   = var.city
+  stage  = var.stage
+  name   = var.name
+  suffix = var.suffix
 
-  vpc_id = "vpc-075279b4e48b983ff"
+  vpc_id = var.vpc_id
 
-  subnet_ids = [
-    "subnet-08a5b599722126606",
-    "subnet-08d4e11f445bb207f",
-    "subnet-0706fbc7ebe262da7",
-  ]
+  subnet_ids = var.subnet_ids
 
   launch_configuration_enable = false
   launch_template_enable      = true
@@ -53,11 +53,19 @@ module "bastion" {
   on_demand_rate = "0"
 
   key_name = "nalbam-seoul"
+
+  tags = [
+    {
+      key                 = "Type"
+      value               = "bastion"
+      propagate_at_launch = true
+    },
+  ]
 }
 
 // AdministratorAccess
 resource "aws_iam_role_policy_attachment" "this" {
-  role = module.bastion.iam_role_name
+  role       = module.bastion.iam_role_name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 

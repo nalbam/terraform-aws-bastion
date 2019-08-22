@@ -4,6 +4,8 @@
 set -x
 exec > /var/log/user-data.log 2>&1
 
+hostname "${HOSTNAME}"
+
 rm -rf /etc/motd
 cat <<EOF > /etc/motd
 
@@ -13,5 +15,7 @@ cat <<EOF > /etc/motd
 # 비인가자의 경우 접속을 해지하여 주시기 바랍니다.      #
 #                                                       #
 #########################################################
+
+>> ${HOSTNAME} <<
 
 EOF
