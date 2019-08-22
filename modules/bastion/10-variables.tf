@@ -25,7 +25,7 @@ variable "ami_id" {
 
 variable "type" {
   description = "Type of the instance, e.g: t2.micro"
-  default     = ""
+  default     = "t2.micro"
 }
 
 variable "vpc_id" {
