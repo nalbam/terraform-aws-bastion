@@ -13,8 +13,12 @@ provider "aws" {
   region = "ap-northeast-2"
 }
 
+data "template_file" "setup" {
+  template = file("../../template/setup.sh")
+}
+
 module "bastion" {
-  source = "../../modules/bastion"
+  source = "github.com/nalbam/terraform-aws-asg/modules/asg"
 
   region = "ap-northeast-2"
   city   = "seoul"
@@ -24,26 +28,59 @@ module "bastion" {
 
   vpc_id = "vpc-025ad1e9d1cb3c27d"
 
-  subnet_id = "subnet-007a2bd91c7939e85"
+  subnet_ids = [
+    "subnet-007a2bd91c7939e85",
+    "subnet-0477597c240b95aa8",
+    "subnet-0c91c5cd95b319b76",
+  ]
 
-  # ami_id = ""
-  # type   = "t2.nano"
+  launch_configuration_enable = false
+  launch_template_enable      = true
+  launch_each_subnet          = false
+
+  associate_public_ip_address = true
+
+  instance_type = "t2.micro"
+
+  user_data = data.template_file.setup.rendered
+
+  volume_size = "8"
+
+  min = "1"
+  max = "1"
+
+  on_demand_base = "0"
+  on_demand_rate = "0"
 
   key_name = "nalbam-seoul"
+}
 
-  allow_ip_address = [
-    "106.244.127.5/32", # echo "$(curl -sL icanhazip.com)/32"
+// AdministratorAccess
+resource "aws_iam_role_policy_attachment" "this" {
+  role = module.bastion.iam_role_name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
+resource "aws_security_group_rule" "worker-ingress-ssh" {
+  description       = "Allow workstation to communicate with the cluster API Server"
+  security_group_id = module.bastion.security_group_id
+  cidr_blocks       = [
+    "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  type              = "ingress"
 }
 
-output "name" {
-  value = module.bastion.name
-}
+# output "name" {
+#   value = module.bastion.name
+# }
 
-output "key_name" {
-  value = module.bastion.key_name
-}
+# output "key_name" {
+#   value = module.bastion.key_name
+# }
 
-output "public_ip" {
-  value = module.bastion.public_ip
-}
+# output "public_ip" {
+#   value = module.bastion.public_ip
+# }
