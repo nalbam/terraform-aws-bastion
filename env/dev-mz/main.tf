@@ -30,13 +30,9 @@ module "bastion" {
   name   = var.name
   suffix = var.suffix
 
-  vpc_id = "vpc-025ad1e9d1cb3c27d"
+  vpc_id = var.vpc_id
 
-  subnet_ids = [
-    "subnet-007a2bd91c7939e85",
-    "subnet-0477597c240b95aa8",
-    "subnet-0c91c5cd95b319b76",
-  ]
+  subnet_ids = var.subnet_ids
 
   launch_configuration_enable = false
   launch_template_enable      = true
