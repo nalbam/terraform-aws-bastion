@@ -72,15 +72,3 @@ resource "aws_security_group_rule" "worker-ingress-ssh" {
   protocol          = "tcp"
   type              = "ingress"
 }
-
-# output "name" {
-#   value = module.bastion.name
-# }
-
-# output "key_name" {
-#   value = module.bastion.key_name
-# }
-
-# output "public_ip" {
-#   value = module.bastion.public_ip
-# }
