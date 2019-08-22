@@ -44,6 +44,7 @@ module "bastion" {
 
   user_data = data.template_file.setup.rendered
 
+  volume_type = "gp2"
   volume_size = "8"
 
   min = "1"
