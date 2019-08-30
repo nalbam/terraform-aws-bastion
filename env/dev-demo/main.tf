@@ -17,7 +17,7 @@ data "template_file" "setup" {
   template = file("../../template/setup.sh")
 
   vars = {
-    HOSTNAME = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
+    HOSTNAME = local.full_name
   }
 }
 

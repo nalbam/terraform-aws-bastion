@@ -29,3 +29,7 @@ variable "subnet_ids" {
     "subnet-0c91c5cd95b319b76",
   ]
 }
+
+locals {
+  full_name = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
+}
