@@ -24,11 +24,7 @@ data "template_file" "setup" {
 module "bastion" {
   source = "github.com/nalbam/terraform-aws-asg/modules/asg"
 
-  region = var.region
-  city   = var.city
-  stage  = var.stage
-  name   = var.name
-  suffix = var.suffix
+  name = local.full_name
 
   vpc_id = var.vpc_id
 
@@ -73,11 +69,11 @@ resource "aws_iam_role_policy_attachment" "this" {
 resource "aws_security_group_rule" "worker-ingress-ssh" {
   description       = "Allow workstation to communicate with the cluster API Server"
   security_group_id = module.bastion.security_group_id
-  cidr_blocks       = [
+  cidr_blocks = [
     "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  type              = "ingress"
+  from_port = 22
+  to_port   = 22
+  protocol  = "tcp"
+  type      = "ingress"
 }
