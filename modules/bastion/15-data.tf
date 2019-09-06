@@ -1,6 +1,5 @@
 # data
 
-# Define an Amazon Linux AMI.
 data "aws_ami" "this" {
   most_recent = true
 

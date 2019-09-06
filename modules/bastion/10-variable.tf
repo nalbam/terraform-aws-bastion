@@ -5,9 +5,11 @@ variable "name" {
 }
 
 variable "vpc_id" {
+  default = ""
 }
 
 variable "subnet_id" {
+  default = ""
 }
 
 variable "administrator" {
