@@ -22,14 +22,33 @@ variable "vpc_id" {
   default = "vpc-075279b4e48b983ff"
 }
 
-variable "subnet_ids" {
+variable "subnet_id" {
+  default = "subnet-08a5b599722126606"
+}
+
+variable "administrator" {
+  default = true
+}
+
+variable "allow_ip_address" {
+  type = list(string)
   default = [
-    "subnet-08a5b599722126606",
-    "subnet-08d4e11f445bb207f",
-    "subnet-0706fbc7ebe262da7",
+    "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
+}
+
+variable "key_name" {
+  default = "nalbam-seoul"
 }
 
 locals {
   full_name = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
+}
+
+data "template_file" "setup" {
+  template = file("template/setup.sh")
+
+  vars = {
+    HOSTNAME = local.full_name
+  }
 }
