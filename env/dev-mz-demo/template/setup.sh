@@ -21,3 +21,4 @@ cat <<EOF > /etc/motd
 EOF
 
 runuser -l ec2-user -c "curl -sL https://raw.githubusercontent.com/opspresso/toaster/master/tools.sh | bash"
+runuser -l ec2-user -c "curl -sL https://raw.githubusercontent.com/opspresso/toaster/master/install.sh | bash"
