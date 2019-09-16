@@ -16,7 +16,7 @@ provider "aws" {
 module "bastion" {
   source = "../../modules/bastion"
 
-  name = local.full_name
+  name = var.name
 
   vpc_id = var.vpc_id
 
