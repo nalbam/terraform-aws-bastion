@@ -34,6 +34,6 @@ data "template_file" "setup" {
   template = file("template/setup.sh")
 
   vars = {
-    HOSTNAME = local.full_name
+    HOSTNAME = var.name
   }
 }
