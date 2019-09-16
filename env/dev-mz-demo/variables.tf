@@ -30,10 +30,6 @@ variable "key_name" {
   default = "nalbam-seoul"
 }
 
-locals {
-  full_name = "${var.city}-${var.stage}-${var.name}-${var.suffix}"
-}
-
 data "template_file" "setup" {
   template = file("template/setup.sh")
 
