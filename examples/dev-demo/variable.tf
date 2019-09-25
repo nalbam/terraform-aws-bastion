@@ -1,3 +1,5 @@
+# variable
+
 variable "region" {
   default = "ap-northeast-2"
 }
@@ -7,11 +9,11 @@ variable "name" {
 }
 
 variable "vpc_id" {
-  default = "vpc-025ad1e9d1cb3c27d"
+  default = "vpc-050facec749c33357"
 }
 
 variable "subnet_id" {
-  default = "subnet-007a2bd91c7939e85"
+  default = "subnet-0dc7b46f475b61086"
 }
 
 variable "administrator" {
@@ -21,8 +23,7 @@ variable "administrator" {
 variable "allow_ip_address" {
   type = list(string)
   default = [
-    "0.0.0.0/0", # all
-    # "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
+    "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
 }
 

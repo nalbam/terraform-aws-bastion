@@ -3,7 +3,7 @@
 terraform {
   backend "s3" {
     region = "ap-northeast-2"
-    bucket = "terraform-mz-seoul"
+    bucket = "terraform-nalbam-seoul"
     key    = "bastion.tfstate"
   }
   required_version = ">= 0.12"
@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "bastion" {
-  source = "../../modules/bastion"
+  source = "../../"
 
   name = var.name
 
