@@ -24,7 +24,8 @@ variable "administrator" {
 variable "allow_ip_address" {
   type = list(string)
   default = [
-    "221.148.35.250/32", # echo "$(curl -sL icanhazip.com)/32"
+    "0.0.0.0/0",
+    # "106.244.127.8/32", # echo "$(curl -sL icanhazip.com)/32"
   ]
 }
 
