@@ -18,9 +18,9 @@ module "bastion" {
 
   name = var.name
 
-  vpc_id = var.vpc_id
+  vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
 
-  subnet_id = var.subnet_id
+  subnet_id = data.terraform_remote_state.vpc.outputs.public_subnet_ids[0]
 
   administrator = var.administrator
 

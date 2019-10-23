@@ -1,19 +1,20 @@
 # variable
 
+data "terraform_remote_state" "vpc" {
+  backend = "s3"
+  config = {
+    region = "ap-northeast-2"
+    bucket = "terraform-nalbam-seoul"
+    key    = "vpc-demo.tfstate"
+  }
+}
+
 variable "region" {
   default = "ap-northeast-2"
 }
 
 variable "name" {
   default = "seoul-dev-demo-bastion"
-}
-
-variable "vpc_id" {
-  default = "vpc-050facec749c33357"
-}
-
-variable "subnet_id" {
-  default = "subnet-0dc7b46f475b61086"
 }
 
 variable "administrator" {
