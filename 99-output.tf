@@ -1,7 +1,7 @@
 # output
 
-output "name" {
-  value = var.name
+output "id" {
+  value = aws_instance.this.id
 }
 
 output "key_name" {

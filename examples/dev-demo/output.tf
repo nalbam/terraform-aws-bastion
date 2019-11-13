@@ -1,7 +1,11 @@
 # output
 
-output "name" {
-  value = module.bastion.name
+output "id" {
+  value = module.bastion.id
+}
+
+output "key_name" {
+  value = module.bastion.key_name
 }
 
 output "private_ip" {
