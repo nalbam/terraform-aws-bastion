@@ -15,3 +15,7 @@ output "private_ip" {
 output "public_ip" {
   value = module.bastion.public_ip
 }
+
+output "security_group_id" {
+  value = module.bastion.security_group_id
+}

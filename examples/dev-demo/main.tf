@@ -16,6 +16,7 @@ provider "aws" {
 }
 
 module "bastion" {
+  # source = "github.com/nalbam/terraform-aws-bastion?ref=v0.12.10"
   source = "../../"
 
   name = var.name
