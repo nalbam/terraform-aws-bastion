@@ -22,6 +22,6 @@ data "aws_ami" "this" {
 
   filter {
     name   = "name"
-    values = ["amzn-ami-hvm-*"]
+    values = ["amzn2-ami-hvm-*"]
   }
 }
