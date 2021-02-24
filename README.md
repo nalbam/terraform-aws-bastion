@@ -1,14 +1,5 @@
 # terraform-aws-bastion
 
-```bash
-# terraform
-brew install terraform
+<!--- BEGIN_TF_DOCS --->
 
-# examples
-cd examples/dev-demo
-
-# terraform (5m)
-terraform init
-terraform plan
-terraform apply
-```
+<!--- END_TF_DOCS --->
